@@ -1,9 +1,22 @@
 const chars = 'ABCDEFGHIJK0123456789';
 
-// Pobieramy diva i button
+const btn = document.querySelector('button');
+const div = document.querySelector('div');
+const codesNumber = 100;
+const charsNumber = 12;
 
-// Dwie zmienne globalne zawierające - ilość kodów, długość kodu
+const codesGenerator = () => {
+    for (let i = 0; i < codesNumber; i++) {
+        let code = '';
+        for (let i = 0; i < charsNumber; i++) {
+            const index = Math.floor(Math.random() * chars.length)
+            code += chars[index];
+        }
+        // const newDiv = document.createElement('div');
+        // newDiv.textContent = code;
+        // div.appendChild(code);
 
-// Funkcja losująca kody - tu trzeba użyć zagnieżdżenie pętli for
-
-// Nasłuchiwanie na button na powyższą funkcję 
+        div.innerHTML += code + '<br>';
+    }
+}
+btn.addEventListener('click', codesGenerator);
